@@ -19,20 +19,32 @@ typedef std::function<eff(agent*)>behavior; //agent可能产生的行为，实�
 
 static behavior decisionFactory(fp1 condition,fp23 result)
 {
-    return [](agent* examiner){
-        if(!condition)
+    return [](agent* examiner) {
+        if(!condition(examiner->field)) //检查是否满足发生条件
             return nullptr;
+        //准备自解包
         property thisAgentFie;
         vector<agent*> otherAgent;
         vector<property> otherAgentFie;
         bool islazy;
-        unpack(thisAgentFie,otherAgent,otherAgentFie,islazy)=result(examiner->field);
-        //产生副作用这里分开生成代码重复，再重新设计
+        unpack(thisAgentFie,otherAgent,otherAgentFie,islazy)=result(examiner->field); //得到事件产生的结果
+        //产生副作用的函数
+        eff lazyfun=[]() {
+            produceEffects(examiner,thisAgentFie);
+            for(int i=0;i<otherAgent.size();i++)
+            {produceEffects(otherAgent.at(i),otherAgentFie.at(i));}
+        };
+        //根据是否延迟作用决定是返回函数还是直接执行
         if(islazy)
-        {
+        {return lazyfun;}
+        lazyfun();
+        return nullptr;
+    };
+}
 
-        }
-    }
+static void produceEffects(agent *receiver,property thisAgentFie)
+{
+
 }
 
 class agent
@@ -42,8 +54,6 @@ public:
     property field;
     property response(event *e); //事件响应函数
     void decide();
-private:
-    eff produceEffects(property thisAgentFie,vector<agent*> otherAgent,vector<property> otherAgentFie);
 };
 
 class event
