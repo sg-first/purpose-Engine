@@ -10,8 +10,8 @@ include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    world.h \
-    stru.h \
-    head.h
+    head.h \
+    factory.h \
+    world.h
 
 QMAKE_CXXFLAGS += -std=c++11

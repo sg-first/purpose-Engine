@@ -5,7 +5,6 @@
 #include <tuple>
 #include <functional>
 #include <utility>
-#include <list>
 
 using namespace std;
 typedef std::tie unpack;
