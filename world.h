@@ -16,6 +16,7 @@ public:
     string ID;
     property field;
     vector<relationship> relationshipList; //与其它agent的关系列表
+    void clearMemory();
     //响应通知池
     int poolsub=0; //已经响应过的事件在通知池中的下标
     bool getAttention(event* e); //计算是否关注事件
@@ -49,5 +50,5 @@ static void resetPool()
     notificationPool.clear();
 
     for(agent* i:allAgent)
-    {i->poolsub=0;}
+    {i->clearMemory();}
 }

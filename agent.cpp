@@ -32,6 +32,7 @@ bool agent::getAttention(event *e)
 
 void agent::responseEvent(event *e)
 {
+    memory.push_back(e); //记住这个事件
     property effect=REfun(e,this);
     this->produceEffects(effect); //响应事件只涉及到自身状态改变，不做任何决策
 }
@@ -45,4 +46,10 @@ void agent::responsePool()
             responseEvent(e);
     }
     poolsub=notificationPool.size()-1;
+}
+
+void agent::clearMemory()
+{
+    poolsub=0;
+    memory.clear();
 }
