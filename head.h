@@ -11,3 +11,9 @@ typedef std::tie unpack;
 typedef tuple pack;
 
 typedef map<string,float> property;
+
+class help
+{
+public:
+
+};
