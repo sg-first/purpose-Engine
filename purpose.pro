@@ -5,7 +5,9 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     lazyChunk.cpp \
-    event.cpp
+    event.cpp \
+    agent.cpp \
+    engine.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -14,7 +16,7 @@ HEADERS += \
     head.h \
     event.h \
     agent.h \
-    publicState.h \
-    lazyChunk.h
+    lazyChunk.h \
+    engine.h
 
 QMAKE_CXXFLAGS += -std=c++11
