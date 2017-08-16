@@ -1,7 +1,7 @@
 #pragma once
 #include "head.h"
+#include "lazychunk.h"
 
-class LazyChunk;
 class Agent;
 
 typedef bool(*CD2)(const LazyChunk &c); //判定是否满足触发条件
@@ -17,8 +17,6 @@ public:
     void exec(Agent* a,const LazyChunk &c);
 };
 
-typedef map<Agent*,property> relationship;
-
 class Agent
 {
 public:
@@ -27,5 +25,5 @@ public:
     relationship rs; //与其它agent的关系列表，注意其property的键与p不同
     int poolsub; //目前处理到的通知池下标
     list<EventResponse*> responseList; //每个agent具有不同的事件响应列表
-    void ask();
+    void ask(vector<LazyChunk> &elist);
 };

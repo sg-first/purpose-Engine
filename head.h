@@ -10,6 +10,8 @@
 using namespace std;
 
 typedef map<string,float> property;
+class Agent;
+typedef map<Agent*,property> relationship;
 
 class help
 {

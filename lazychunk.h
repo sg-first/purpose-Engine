@@ -1,6 +1,7 @@
 #pragma once
 #include "head.h"
-#include "agent.h"
+
+class Agent;
 
 class LazyChunk
 {
