@@ -1,5 +1,9 @@
 #include "engine.h"
 
+vector<LazyChunk> epool::elist;
+list<Agent*> data::allAgent;
+list<Event*> data::allEvent;
+
 void epool::addChunk(vector<LazyChunk> chunk)
 {
     for(LazyChunk i:chunk)

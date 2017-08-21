@@ -20,10 +20,17 @@ public:
 class Agent
 {
 public:
+    Agent(string id,int nowpoolsub,vector<LazyChunk> &elist):
+        id(id),poolsub(nowpoolsub),elist(elist)
+    {
+        //调用列表构造函数初始化p和rs的键
+    }
     string id;
     property p; //拥有的属性
     relationship rs; //与其它agent的关系列表，注意其property的键与p不同
     int poolsub; //目前处理到的通知池下标
     list<EventResponse*> responseList; //每个agent具有不同的事件响应列表
-    void ask(vector<LazyChunk> &elist);
+    void ask();
+private:
+    vector<LazyChunk> &elist;
 };

@@ -23,5 +23,5 @@ void LazyChunk::role()
         help::mergemap(obj->p,this->pDelta);
         mergers(obj->rs,this->rsDelta);
     }
-    help::mergemap(data::globalp,this->pspDelta);
+    help::mergemap(*(this->globalp),this->pspDelta);
 }

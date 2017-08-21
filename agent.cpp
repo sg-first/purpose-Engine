@@ -9,15 +9,15 @@ void EventResponse::exec(Agent *a, const LazyChunk &c)
     }
 }
 
-void Agent::ask(vector<LazyChunk> &elist)
+void Agent::ask()
 {
-    if(this->poolsub==elist.size())
+    if(this->poolsub==this->elist.size())
         return;
 
-    for(;this->poolsub<elist.size();this->poolsub++)
+    for(;this->poolsub<this->elist.size();this->poolsub++)
     {
         for(EventResponse* ep:this->responseList)
-        {ep->exec(this,elist.at(this->poolsub));}
+        {ep->exec(this,this->elist.at(this->poolsub));}
     }
     this->poolsub++; //每次都直接开始
 }
