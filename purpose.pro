@@ -7,7 +7,8 @@ SOURCES += main.cpp \
     lazyChunk.cpp \
     event.cpp \
     agent.cpp \
-    engine.cpp
+    engine.cpp \
+    initmap.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -17,6 +18,7 @@ HEADERS += \
     event.h \
     agent.h \
     lazyChunk.h \
-    engine.h
+    engine.h \
+    initmap.h
 
 QMAKE_CXXFLAGS += -std=c++11
