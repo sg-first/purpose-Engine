@@ -10,9 +10,6 @@ SOURCES += main.cpp \
     engine.cpp \
     initmap.cpp
 
-include(deployment.pri)
-qtcAddDeployment()
-
 HEADERS += \
     head.h \
     event.h \
