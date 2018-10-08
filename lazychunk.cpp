@@ -1,7 +1,7 @@
 #include "lazyChunk.h"
 #include "engine.h"
 
-void mergers(relationship &rs1,relationship &rs2)
+void mergers(relationship &rs1,relationship &rs2) //相当于一个更大的mergemap
 {
     //找到一样的agent，然后对其second进行mergemap
     relationship::iterator it1=rs1.begin();
@@ -23,5 +23,6 @@ void LazyChunk::role()
         help::mergemap(obj->p,this->pDelta);
         mergers(obj->rs,this->rsDelta);
     }
-    help::mergemap(*(this->globalp),this->pspDelta);
+    else
+    {help::mergemap(*(LazyChunk::globalp),this->pspDelta);}
 }

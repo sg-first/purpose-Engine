@@ -4,13 +4,16 @@ void Event::exec(Agent* a)
 {
     if(this->conditionDetermination(a))
     {
-        vector<LazyChunk> chunk=this->performCalu(a); //fix:这里有一些问题，一个chunk只能作用于一个agent，多了怎么办？
+        vector<LazyChunk> chunk=this->performCalu(a);
         if(this->callback!=nullptr)
-        {this->callback(chunk);}
+        {this->callback(chunk);} //处理chunk的任务交给callback（callback进行的如询问用户等）
         else
         {
             for(LazyChunk i: chunk)
-            {i.role();}
+            {
+                i.role();
+                //fix:此后应把i添加进通知池
+            }
         }
     }
 }
