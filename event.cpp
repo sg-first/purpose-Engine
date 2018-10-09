@@ -12,7 +12,7 @@ void Event::exec(Agent* a)
             for(LazyChunk i: chunk)
             {
                 i.role();
-                //fix:此后应把i添加进通知池
+                Event::elist->push_back(i); //添加进通知池
             }
         }
     }

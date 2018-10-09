@@ -15,5 +15,5 @@ public:
     property pspDelta; //对全局状态p的改变
     void role();
 
-    static property* globalp; //会被初始化为epool中的全局状态p
+    static property* globalp; //会被初始化为data中的全局状态p
 };

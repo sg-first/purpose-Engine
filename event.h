@@ -16,4 +16,6 @@ public:
     PC performCalu;
     CB callback;
     void exec(Agent *a);
+
+    static vector<LazyChunk>* elist; //会被初始化为epool中全局事件容器elist
 };

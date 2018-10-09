@@ -2,10 +2,12 @@
 
 property* LazyChunk::globalp;
 property data::globalp;
+vector<LazyChunk>* Event::elist;
 
 int main()
 {
     LazyChunk::globalp=&data::globalp;
+    Event::elist=&epool::elist;
     //设定所有的event
     //设定普通property和relationship property的键表，设定全局property的键表
     //设定EventResponse
